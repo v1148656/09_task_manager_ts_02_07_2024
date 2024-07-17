@@ -4,17 +4,20 @@ import { AppDispatch, RootState } from '../redux/store';
 import UserDetails from './UserDetails';
 import { addUser } from '../redux/usersSlice';
 import UserFC from './UserFC';
+import { useParams } from 'react-router-dom';
 
 const UserListFC = () => {
-    const { users, status, idSelectedUser } = useSelector((state: RootState) => state.persons);
+    const { users, status } = useSelector((state: RootState) => state.persons);
     const dispatch: AppDispatch = useDispatch();
 
     const [userName, setUserName] = useState<string>('');
     const [companyName, setCompanyName] = useState<string>('');
     const [phone, setPhone] = useState<string>('');
 
+    const { id } = useParams()
+
   return (
-    idSelectedUser ? (<UserDetails />) : (
+    id ? (<UserDetails />) : (
         <div className="container mt-4">
           <h1 className="mb-4 text-center">User List App</h1>
           <div className="input-group mb-3">
