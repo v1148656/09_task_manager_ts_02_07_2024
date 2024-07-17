@@ -1,7 +1,6 @@
 import { FC, useState } from "react";
-import { IUser } from "./UserList";
 import { useDispatch } from "react-redux";
-import { deleteUser, editUser, selectUser } from "../redux/usersSlice";
+import { deleteUser, editUser, IUser, selectUser } from "../redux/usersSlice";
 import { NavLink } from "react-router-dom";
 import style from "../styles/User.module.css";
 
