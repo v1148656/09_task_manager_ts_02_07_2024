@@ -14,6 +14,7 @@ function App() {
   const { idSelectedUser } = useSelector((state:RootState) => state.persons)
   const dispatch: AppDispatch = useDispatch();
 
+
   useEffect(() => {
     dispatch(fetchTasks())
     dispatch(fetchUsers())
