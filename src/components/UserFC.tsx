@@ -1,6 +1,6 @@
 import { FC, useState } from "react";
 import { useDispatch } from "react-redux";
-import { deleteUser, editUser, IUser, selectUser } from "../redux/usersSlice";
+import { deleteUser, editUser, IUser } from "../redux/usersSlice";
 import { NavLink } from "react-router-dom";
 import style from "../styles/User.module.css";
 
@@ -68,8 +68,7 @@ const UserFC: FC<IProps> = ({ user }) => {
             <NavLink
               className='className="d-flex align-items-center flex-grow-1 text-decoration-none'
               to={`/users/${user.id}`}
-              onClick={() => dispatch(selectUser(user.id))}
-            >
+              >
               <div style={{ flexGrow: 1 }}>
                 <h5 className="card-title">{user.name}</h5>
                 <h6 className="card-subtitle mb-2 text-muted">

@@ -65,9 +65,6 @@ const usersSlice = createSlice({
         );
       }
     },
-    selectUser(state, action: PayloadAction<number>) {
-      state.idSelectedUser = action.payload;
-    },
   },
   extraReducers(builder) {
     builder
@@ -85,6 +82,6 @@ const usersSlice = createSlice({
   },
 });
 
-export const { addUser, deleteUser, editUser, selectUser } = usersSlice.actions;
+export const { addUser, deleteUser, editUser } = usersSlice.actions;
 
 export default usersSlice.reducer;
