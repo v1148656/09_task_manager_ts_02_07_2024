@@ -13,7 +13,7 @@ const Task: FC<IProps> = ({
   index,
 }) => {
   const [isEdit, setIsEdit] = React.useState(false);
-  const textRef: RefObject<HTMLTextAreaElement> = useRef(null); // { current: document.getElementById() }'
+  const textRef: RefObject<HTMLTextAreaElement> = useRef(null);
 
   const dispatch: AppDispatch = useDispatch();
 
@@ -31,6 +31,15 @@ const Task: FC<IProps> = ({
       }));
       setIsEdit(false);
     }
+  };
+
+  const handleCheckboxChange = () => {
+    dispatch(editTask({
+      id: index,
+      title,
+      isCompleted: !isCompleted,
+      updatedAt: new Date()
+    }));
   };
 
   return (
@@ -68,14 +77,7 @@ const Task: FC<IProps> = ({
             </small>
             <input
               checked={isCompleted}
-              onChange={() =>
-                editTask({
-                  id: index,
-                  title,
-                  isCompleted: !isCompleted,
-                  updatedAt: new Date(),
-                })
-              }
+              onChange={handleCheckboxChange}
               type="checkbox"
               className="form-check-input me-2"
             />
