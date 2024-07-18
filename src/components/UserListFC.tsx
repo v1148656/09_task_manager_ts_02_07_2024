@@ -2,7 +2,7 @@ import { useState } from 'react'
 import { useDispatch, useSelector } from 'react-redux';
 import { AppDispatch, RootState } from '../redux/store';
 import UserDetails from './UserDetails';
-import { addUser } from '../redux/usersSlice';
+import { addUser, IUser } from '../redux/usersSlice';
 import UserFC from './UserFC';
 import { useParams } from 'react-router-dom';
 
@@ -62,7 +62,7 @@ const UserListFC = () => {
                     <span className="visually-hidden">Loading...</span>
                 </div>
             )}
-            { status === 'success' && users.map((user) => (
+            { status === 'success' && users.map((user: IUser) => (
               <UserFC
                 key={user.id}
                 user={user}

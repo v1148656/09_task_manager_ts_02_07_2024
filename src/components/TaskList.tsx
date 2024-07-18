@@ -50,7 +50,7 @@ const TaskList = () => {
           </div>
         )}
         {status === "success" &&
-          tasks.map((task, index) => (
+          tasks.map((task: ITask, index: number) => (
             <Task key={index} task={task} index={index} />
           ))}
         {status === "error" && (
